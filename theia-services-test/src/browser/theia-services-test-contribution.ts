@@ -18,9 +18,10 @@ export class TheiaServicesTestCommandContribution implements CommandContribution
 
     registerCommands(registry: CommandRegistry): void {
         registry.registerCommand(TheiaServicesTestCommand, {
-            execute: () => {
-                this.messageService.info('Hello World!')
-                console.log(this.server.sayHello());
+            execute: async () => {
+                this.messageService.info('Hello World!');
+                const reply = await this.server.sayHello();
+                console.log(reply);
             }
         });
     }
